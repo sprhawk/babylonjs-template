@@ -1,0 +1,6 @@
+*~
+\#*\#
+*.log
+dist
+types
+node_modules

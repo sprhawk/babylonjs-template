@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "sourceMap": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+	// "allowJs": true,
+        "target": "esnext",
+	// "isolatedModules": true,
+	// "noEmit": true,
+	"esModuleInterop": true,
+        "strict": true,
+	"allowSyntheticDefaultImports": true,
+	"noFallthroughCasesInSwitch": true,
+	"noUnusedParameters": true,
+        "noImplicitReturns": true,
+	"noUnusedLocals": true,
+	"noImplicitAny": true,
+	"strictNullChecks": true,
+	"declaration": true,
+	"declarationDir": "./types"
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+	"node_modules",
+	"dist"
+    ]
+}
