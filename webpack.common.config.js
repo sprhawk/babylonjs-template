@@ -19,7 +19,8 @@ module.exports = function(mode) {
             chunkFilename: mode == "development" ? "[name].chunk.js" : "[name].[hash].chunk.js",
         },
         entry: {
-            "index": "./src/index.ts",
+            earth: "./src/earth.ts",
+            stars: "./src/stars.ts",
         },
         module: {
             rules: [
@@ -150,6 +151,15 @@ module.exports = function(mode) {
             //     { from: "index.html", to: "dist/index.html" },
             // ]),
             new HtmlWebpackPlugin({
+                filename: "earth.html",
+                chunks: ["earth"],
+                inject: "body",
+                template: "index.html"
+            }),
+            new HtmlWebpackPlugin({
+                filename: "stars.html",
+                chunks: ["stars"],
+                inject: "body",
                 template: "index.html"
             }),
          ],
@@ -163,23 +173,9 @@ module.exports = function(mode) {
             //   new OptimizeCssAssetsPlugin({})
             // ],
             splitChunks: {
-                chunks: 'all'
-                
-                // chunks(chunk) {
-                //   return chunk.name != "aframe";
-                // },
-                // cacheGroups: {
-                //     vendors: {
-                //         name: "vendors",
-                //         test: /[\\/]node_modules[\\/]/,
-                //         reuseExistingChunk: true,
-                //         priority: -10
-                //     },
-                // },
-                // chunks: 'all',
-                // name: true,
-                // minSize: 30000,
-                // minChunks:1
+                chunks: 'all',
+                name: true,
+                minSize: 0,
             }
         },
         watchOptions: {
