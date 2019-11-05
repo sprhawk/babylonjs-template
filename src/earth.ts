@@ -1,4 +1,4 @@
-import "scss/base.scss";
+import "scss/earth.scss";
 
 import "pepjs";
 import { Engine } from "@babylonjs/core/Engines/engine";
