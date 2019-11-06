@@ -1176,6 +1176,11 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
+babylonjs-editor-es6@^3.2.0-beta.4:
+  version "3.2.0-beta.4"
+  resolved "https://registry.yarnpkg.com/babylonjs-editor-es6/-/babylonjs-editor-es6-3.2.0-beta.4.tgz#c785f13c8e06b778c17ecb2c5fdb222d2bb7d89f"
+  integrity sha512-oOXPHVISE2KSIL0DnsiiXY34ixYGClYNs1rGSGmTmJ3v0M2f8XbZ2YSowZfMZwaUTenzt/LNDD2Vcd4GFr1vKA==
+
 babylonjs-gltf2interface@4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/babylonjs-gltf2interface/-/babylonjs-gltf2interface-4.0.3.tgz#e81cc65fac93b723feef4980b7497fa4643a8c4c"

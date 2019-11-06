@@ -2,12 +2,14 @@ import "scss/stars.scss";
 
 import "pepjs";
 import { Engine, Scene, SceneLoader } from "@babylonjs/core";
-import "cannon";
+import { Tools } from "@babylonjs/core";
+import { Extensions } from "babylonjs-editor-es6";
 
 class StarsDemo {
     private _canvas: HTMLCanvasElement;
     private _engine: Engine;
     private _scene: Scene | null = null;
+    private readonly _rootDir = "./scenes/";
     
     constructor(canvasElementId: string) {
         this._canvas = document.getElementById(canvasElementId) as HTMLCanvasElement;
@@ -19,7 +21,7 @@ class StarsDemo {
     }
 
     createScene() : void {
-        SceneLoader.Load("./scenes/", "scene.babylon", this._engine, (scene: Scene) => {
+        SceneLoader.Load(this._rootDir, "scene.babylon", this._engine, (scene: Scene) => {
             this._scene = scene;
             if(null != this._scene) {
                 let scn: Scene = this._scene;
@@ -30,8 +32,12 @@ class StarsDemo {
                     scn.activeCamera.attachControl(this._canvas, true);
                 }
 
-                this._engine.runRenderLoop(() => {
-                    scn.render();
+                Tools.LoadFile(this._rootDir + "project.editorproject", (data: any) => {
+                    Extensions.RoolUrl = this._rootDir;
+                    Extensions.ApplyExtensions(scn, JSON.parse(data));
+                    this._engine.runRenderLoop(() => {
+                        scn.render();
+                    });
                 });
             }
         });
