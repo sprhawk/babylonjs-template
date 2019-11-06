@@ -162,6 +162,9 @@ module.exports = function(mode) {
                 inject: "body",
                 template: "index.html"
             }),
+            new webpack.ProvidePlugin({
+                'CANNON': 'cannon'
+            }),
          ],
         optimization: {
             // minimizer: [

@@ -4,3 +4,4 @@
 dist
 types
 node_modules
+.DS_Store

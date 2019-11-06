@@ -17,7 +17,8 @@ class EarthScene {
     private _camera: FreeCamera;
     private _light: HemisphericLight;
     private _material: GridMaterial;
-    private _sphere: Mesh;
+    private _solarMesh: Mesh;
+    private _planetMesh: Mesh;
     private _ground: Mesh;
     
     constructor(engine: Engine) {
@@ -35,11 +36,16 @@ class EarthScene {
 
         this._material = new GridMaterial("grid", this.scene);
 
-        this._sphere = Mesh.CreateSphere("sphere1", 16, 2, this.scene);
-        this._sphere.position.y = 2;
-        this._sphere.material = this._material;
+        this._solarMesh = Mesh.CreateSphere("sphere1", 16, 2, this.scene);
+        this._solarMesh.position.y = 2;
+        this._solarMesh.material = this._material;
 
-        this._ground = Mesh.CreateGround("ground1", 6, 6, 2, this.scene);
+        this._planetMesh = Mesh.CreateSphere("spherePlanet", 6, 2, this.scene);
+        this._planetMesh.position.y = 2;
+        this._planetMesh.position.x = -2;
+        this._planetMesh.material = this._material;
+
+        this._ground = Mesh.CreateGround("ground1", 16, 16, 2, this.scene);
         this._ground.material = this._material;
     }
 

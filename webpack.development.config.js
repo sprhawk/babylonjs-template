@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
 
     return merge(common_config, {
         devServer: {
-            contentBase: "dist",
+            contentBase: ".",
             host: "localhost",
             port: 8000,
             compress: true,
